@@ -7,6 +7,16 @@ import React, { useState } from 'react'
         console.log(event.target.value);
         setData(data.concat(event.target.value))
     }
+
+    const calculation = () =>{
+        setData(eval(data).toString())
+    }
+    const back = () =>{
+        setData(data.slice(0,-1))
+    }
+    const clear = () =>{
+        setData("")
+    }
     
    return (
      <>
@@ -19,7 +29,7 @@ import React, { useState } from 'react'
             <button onClick={getValue} value="(">(</button>
             <button onClick={getValue} value=")">)</button>
             <button onClick={getValue} value="%">%</button>
-            <button >AC</button>
+            <button onClick={clear}>AC</button>
 
             <button onClick={getValue} value="7">7</button>
             <button onClick={getValue} value="8">8</button>
@@ -37,8 +47,8 @@ import React, { useState } from 'react'
             <button onClick={getValue} value="+">+</button>
 
             <button onClick={getValue} value="0">0</button>
-            <button>Back</button>
-            <button>=</button>
+            <button onClick={back}  >Back</button>
+            <button onClick={calculation}>=</button>
             <button onClick={getValue} value="/">/</button>
 
         </div>
